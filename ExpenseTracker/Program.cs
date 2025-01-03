@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddServiceExtension(builder.Configuration);
 
 builder.Services.AddDbContext<ExpenseTrackingContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Server=localhost;Database=CodeCommandos;User Id=sa;Password=yash2002;TrustServerCertificate=True;Encrypt=True;TrustServerCertificate=True")));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

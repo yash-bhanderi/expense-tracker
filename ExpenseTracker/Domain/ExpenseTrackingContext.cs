@@ -14,6 +14,11 @@ public class ExpenseTrackingContext : DbContext
     {
         optionsBuilder.UseSqlServer("YourConnectionStringHere");
     }
+    
+    public ExpenseTrackingContext(DbContextOptions<ExpenseTrackingContext> options)
+        : base(options)
+    {
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

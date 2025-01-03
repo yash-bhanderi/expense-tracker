@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CodeCommandos.Domain;
+using CodeCommandos.Domain.Dtos;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CodeCommandos.Controllers;
 
@@ -18,7 +21,7 @@ public class ExpenseTagsController : ControllerBase
     {
         _context.ExpenseTags.Add(tag);
         await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetExpenseTag), new { id = tag.ExpenseTagId }, tag);
+        return CreatedAtAction(nameof(GetTagsForExpense), new { id = tag.ExpenseTagId }, tag);
     }
 
     [HttpGet("expense/{expenseId}")]
